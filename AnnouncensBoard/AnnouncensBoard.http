@@ -1,0 +1,6 @@
+@AnnouncensBoard_HostAddress = http://localhost:5273
+
+GET {{AnnouncensBoard_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
