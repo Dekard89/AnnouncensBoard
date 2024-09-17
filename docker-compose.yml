@@ -1,11 +1,19 @@
+
 version: '3.4'
 
 services:
   announcensboard:
     image: ${DOCKER_REGISTRY-}announcensboard
+    depends_on:
+      - database
+      - redis
+    environment:
+       _ WAIT_HOSTS: database:5432, redis:6379
     build:
       context: .
       dockerfile: AnnouncensBoard/Dockerfile
+      
+      
   
   database:
     image: postgres   

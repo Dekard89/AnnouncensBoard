@@ -8,6 +8,8 @@
 
         public Category Category { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public Subject Subject { get; set; }
 
 

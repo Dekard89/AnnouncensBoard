@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "f4J9JRcmJ+sviEHEFy+ECW66VQdUqGU3ltzFM/kbWoImjE2Qs+VO6IDTWCOg2bFcdymSAa3wECdRbLmy3b8xLA==",
+  "dgSpecHash": "42Am6YGGHaaCtinZVOuWH2SDVeaFvSxxT0qkmGeKh3e/6oV2JAo5J6kI6cPZELG94VDGsNp7A7XMmeY53vtDkw==",
   "success": true,
   "projectFilePath": "C:\\Users\\dmitr\\source\\repos\\AnnouncensBoard\\AnnouncensBoard\\AnnouncensBoard.csproj",
   "expectedPackageFiles": [
@@ -39,6 +39,8 @@
     "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.5\\microsoft.visualstudio.azure.containers.tools.targets.1.19.5.nupkg.sha512",
     "C:\\Users\\dmitr\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512",
+    "C:\\Users\\dmitr\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.4\\npgsql.entityframeworkcore.postgresql.8.0.4.nupkg.sha512",
     "C:\\Users\\dmitr\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\dmitr\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\dmitr\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

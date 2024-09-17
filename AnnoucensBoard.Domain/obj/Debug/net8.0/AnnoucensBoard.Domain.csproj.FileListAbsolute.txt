@@ -1,0 +1,11 @@
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\bin\Debug\net8.0\AnnoucensBoard.Domain.deps.json
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\bin\Debug\net8.0\AnnoucensBoard.Domain.dll
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\bin\Debug\net8.0\AnnoucensBoard.Domain.pdb
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\obj\Debug\net8.0\AnnoucensBoard.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\obj\Debug\net8.0\AnnoucensBoard.Domain.AssemblyInfoInputs.cache
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\obj\Debug\net8.0\AnnoucensBoard.Domain.AssemblyInfo.cs
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\obj\Debug\net8.0\AnnoucensBoard.Domain.csproj.CoreCompileInputs.cache
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\obj\Debug\net8.0\AnnoucensBoard.Domain.dll
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\obj\Debug\net8.0\refint\AnnoucensBoard.Domain.dll
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\obj\Debug\net8.0\AnnoucensBoard.Domain.pdb
+C:\Users\dmitr\source\repos\AnnouncensBoard\AnnoucensBoard.Domain\obj\Debug\net8.0\ref\AnnoucensBoard.Domain.dll
