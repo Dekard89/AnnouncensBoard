@@ -13,11 +13,8 @@ namespace AnnouncensBoard.DAL.EntityConfigaration
             builder.HasKey(t => t.Id);
 
 
-            builder.HasOne(t => t.Subject).WithMany(s => s.Topic).OnDelete(DeleteBehavior.Restrict);
-            
-
-            
-
+           // builder.HasOne(t => t.Subject).WithMany(s => s.Topics).OnDelete(DeleteBehavior.Restrict);
+           
         }
     }
 }

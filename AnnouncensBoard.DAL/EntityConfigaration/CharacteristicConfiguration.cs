@@ -16,6 +16,9 @@ namespace AnnouncensBoard.DAL.EntityConfigaration
 
             builder.Property(x => x.Title).HasMaxLength(50);
 
+            builder.HasKey(x => x.Id);
+
+            builder.HasOne(s => s.Subject).WithMany(Subject => Subject.Characteristics);
             
         }
     }

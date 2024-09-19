@@ -17,12 +17,15 @@ namespace AnnouncensBoard.DAL.EntityConfigaration
         {
             builder.ToTable("Subject_table");
 
-            
+            builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.Characteristics).WithMany().OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(s=>s.Characteristics).WithOne(c=>c.Subject).OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasMany(s => s.Topic).WithOne(s => s.Subject).OnDelete(DeleteBehavior.Restrict)
-                .HasForeignKey(t => t.Subject);
+            builder.HasMany(s => s.Topics).WithOne(s => s.Subject)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(s => s.Characteristics).WithOne(c => c.Subject)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

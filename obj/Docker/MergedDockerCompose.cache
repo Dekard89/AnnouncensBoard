@@ -4,13 +4,21 @@ services:
     build:
       context: C:\Users\dmitr\source\repos\AnnouncensBoard
       dockerfile: AnnouncensBoard/Dockerfile
+    depends_on:
+      database:
+        condition: service_started
+        required: true
+      redis:
+        condition: service_started
+        required: true
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_HTTP_PORTS: "8080"
       ASPNETCORE_HTTPS_PORTS: "8081"
+      WAIT_HOSTS: database:5432, redis:6379
     image: announcensboard
     networks:
-      default: null
+      asp-network: null
     ports:
       - mode: ingress
         target: 8080
@@ -31,6 +39,56 @@ services:
         read_only: true
         bind:
           create_host_path: true
+  database:
+    container_name: postgres
+    environment:
+      POSTGRES_DB: my_db
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    image: postgres
+    networks:
+      asp-network: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: volume
+        source: postgres-data
+        target: /var/lib/postgres/data
+        volume: {}
+  redis:
+    container_name: redis
+    environment:
+      REDIS_DATABASES: "16"
+      REDIS_PASSWORD: my-password
+      REDIS_PORT: "6379"
+    image: redis:latest
+    networks:
+      asp-network: null
+    ports:
+      - mode: ingress
+        target: 6379
+        published: "6379"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: bind
+        source: /path/to/local/data
+        target: /root/redis
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /path/to/local/redis.conf
+        target: /usr/local/etc/redis/redis.conf
+        bind:
+          create_host_path: true
 networks:
-  default:
-    name: dockercompose10012281821242152908_default
+  asp-network:
+    name: dockercompose10012281821242152908_asp-network
+    driver: bridge
+volumes:
+  postgres-data:
+    name: dockercompose10012281821242152908_postgres-data

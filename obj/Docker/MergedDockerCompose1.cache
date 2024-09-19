@@ -11,6 +11,13 @@ services:
         com.microsoft.visual-studio.project-name: AnnouncensBoard
       target: base
     container_name: AnnouncensBoard
+    depends_on:
+      database:
+        condition: service_started
+        required: true
+      redis:
+        condition: service_started
+        required: true
     entrypoint:
       - tail
       - -f
@@ -22,6 +29,7 @@ services:
       ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
       NUGET_FALLBACK_PACKAGES: /.nuget/fallbackpackages
+      WAIT_HOSTS: database:5432, redis:6379
     image: announcensboard:dev
     labels:
       com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /.nuget/packages --additionalProbingPath /.nuget/fallbackpackages  "/app/bin/Debug/net8.0/AnnouncensBoard.dll"'
@@ -29,7 +37,7 @@ services:
       com.microsoft.visualstudio.debuggee.program: dotnet
       com.microsoft.visualstudio.debuggee.workingdirectory: /app
     networks:
-      default: null
+      asp-network: null
     ports:
       - mode: ingress
         target: 8080
@@ -108,6 +116,56 @@ services:
         read_only: true
         bind:
           create_host_path: true
+  database:
+    container_name: postgres
+    environment:
+      POSTGRES_DB: my_db
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    image: postgres
+    networks:
+      asp-network: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: volume
+        source: postgres-data
+        target: /var/lib/postgres/data
+        volume: {}
+  redis:
+    container_name: redis
+    environment:
+      REDIS_DATABASES: "16"
+      REDIS_PASSWORD: my-password
+      REDIS_PORT: "6379"
+    image: redis:latest
+    networks:
+      asp-network: null
+    ports:
+      - mode: ingress
+        target: 6379
+        published: "6379"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: bind
+        source: /path/to/local/data
+        target: /root/redis
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /path/to/local/redis.conf
+        target: /usr/local/etc/redis/redis.conf
+        bind:
+          create_host_path: true
 networks:
-  default:
-    name: dockercompose10012281821242152908_default
+  asp-network:
+    name: dockercompose10012281821242152908_asp-network
+    driver: bridge
+volumes:
+  postgres-data:
+    name: dockercompose10012281821242152908_postgres-data

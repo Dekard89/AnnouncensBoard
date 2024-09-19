@@ -30,7 +30,11 @@ namespace AnnouncensBoard.DAL
             builder.ApplyConfiguration(new TopicConfiguration());
             builder.ApplyConfiguration(new SubjectConfiguration());
             builder.ApplyConfiguration(new CharacteristicConfiguration());
-
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.Entity<IdentityUserLogin<string>>().HasKey(x => x.UserId);
+            builder.Entity<IdentityUserRole<string>>().HasKey(x => x.UserId);
+            builder.Entity<IdentityUserToken<string>>().HasKey(x => x.UserId);
+            builder.Entity<IdentityUserClaim<string>>().HasKey(x => x.UserId);
             
         }
     }
