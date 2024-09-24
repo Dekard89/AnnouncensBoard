@@ -1,6 +1,8 @@
+using AnnoucensBoard.Domain;
+using AnnoucensBoard.Domain.Entity;
 using AnnouncensBoard.DAL;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,14 +18,17 @@ builder.Services.AddLogging();
 
 builder.Services.AddDbContext<AppDbContext>();
 
+builder.Services.AddScoped<IRepository<Topic>, TopicStore>();
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
 builder.Services.AddIdentityCore<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
-    
 
-
-
+builder.Services.AddStackExchangeRedisCache(opt =>
+    {
+        opt.Configuration = "localhost";
+        opt.InstanceName = "AnnouncensBoard";
+    });
 builder.Services.AddAuthorization(options =>
 {
     

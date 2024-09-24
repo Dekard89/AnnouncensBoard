@@ -1,10 +1,5 @@
 ﻿using AnnoucensBoard.Domain.Entity;
 using AnnoucensBoard.Domain.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnnoucensBoard.Domain
 {
@@ -14,16 +9,16 @@ namespace AnnoucensBoard.Domain
 
         Task<ICollection<T>> GetAllTopic(TopicFilter topicFilter);
 
-        Task<ICollection<T>> GetAllSubjects(SubjectFilter subjectFilter);
+        Task<ICollection<Subject>> GetAllSubjects(SubjectFilter subjectFilter);
 
-        Task<ICollection<T>> GetByPage(int id);
+        Task<ICollection<T>> GetByPage(int pageNumber, int pageSize);
 
-        Task<T> AddAsync(T entity);
+        Task AddAsync(T entity);
 
-        Task<T> UpdateAsync(int id);
+        Task UpdateAsync(T entity);
 
-        Task<T> DeleteAsync(int id);
+        Task DeleteAsync(T entity);
 
-        Task AddSomeTopic();
+        Task<string> AddSomeTopic(List<Topic> topics);
     }
 }

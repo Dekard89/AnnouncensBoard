@@ -7,9 +7,9 @@ namespace AnnoucensBoard.Domain.Entity
         public double Price { get; set; }
 
         public string Discription { get; set; } = string.Empty;
-
+        
+        public bool AdultOnly {get;set;}
         public List<Characteristic> Characteristics { get; set; } = new List<Characteristic>();
-
         public List<Topic> Topics { get; set; }= new List<Topic>();
     }
 }

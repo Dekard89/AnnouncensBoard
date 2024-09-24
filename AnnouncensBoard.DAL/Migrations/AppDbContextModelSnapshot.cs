@@ -57,6 +57,9 @@ namespace AnnouncensBoard.DAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("AdultOnly")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Discription")
                         .IsRequired()
                         .HasColumnType("text");
