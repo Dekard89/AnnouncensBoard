@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnnouncensBoard.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d32c11552e97b37fd6047320cbf925705d4e0a54")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7464206dfa8ce3b5a70160aae5ba2adc1aa6858")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnnouncensBoard.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnnouncensBoard.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

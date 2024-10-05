@@ -1,0 +1,11 @@
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/bin/Debug/net8.0/AnnouncensBoard.BLL.deps.json
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/bin/Debug/net8.0/AnnouncensBoard.BLL.dll
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/bin/Debug/net8.0/AnnouncensBoard.BLL.pdb
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/obj/Debug/net8.0/AnnouncensBoard.BLL.GeneratedMSBuildEditorConfig.editorconfig
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/obj/Debug/net8.0/AnnouncensBoard.BLL.AssemblyInfoInputs.cache
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/obj/Debug/net8.0/AnnouncensBoard.BLL.AssemblyInfo.cs
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/obj/Debug/net8.0/AnnouncensBoard.BLL.csproj.CoreCompileInputs.cache
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/obj/Debug/net8.0/AnnouncensBoard.BLL.dll
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/obj/Debug/net8.0/refint/AnnouncensBoard.BLL.dll
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/obj/Debug/net8.0/AnnouncensBoard.BLL.pdb
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.BLL/obj/Debug/net8.0/ref/AnnouncensBoard.BLL.dll

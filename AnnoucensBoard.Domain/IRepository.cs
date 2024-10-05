@@ -20,5 +20,6 @@ namespace AnnoucensBoard.Domain
         Task DeleteAsync(T entity);
 
         Task<string> AddSomeTopic(List<Topic> topics);
+        
     }
 }

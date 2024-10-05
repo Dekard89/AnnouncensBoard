@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{4821D5FF-6DC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnouncensBoard.BLL", "AnnouncensBoard.BLL\AnnouncensBoard.BLL.csproj", "{59341F84-90A5-438D-8835-B20E10EF4871}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F0ED97ED-2F5C-478D-9192-3F15C7FB6B63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

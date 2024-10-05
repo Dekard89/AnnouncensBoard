@@ -11,32 +11,16 @@ namespace AnnouncensBoard.DAL;
 public class TopicStore : IRepository<Topic>
 {
     private readonly AppDbContext _db;
-    private readonly IDistributedCache _cache;
-
+    
     public TopicStore(AppDbContext context, IDistributedCache cache)
     {
         _db = context;
-        _cache = cache;
     }
     public async Task<Topic> GetById(int id)
     {
-        Topic? topic;
-        
-        string? topicString= await _cache.GetStringAsync(id.ToString());
-
-        if (topicString != null)
-        {
-            topic = JsonSerializer.Deserialize<Topic>(topicString);
-        }
-        else
-        {
-            topic = await _db.Topics.FindAsync(id);
-            await _cache.SetStringAsync(id.ToString(), JsonSerializer.Serialize(topic), new DistributedCacheEntryOptions
-            {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
-            });
-        }
-        return topic;
+      var  topic = await _db.Topics.FindAsync(id);
+            
+      return topic;
     }
 
     public async Task<ICollection<Topic>> GetAllTopic(TopicFilter topicFilter)
@@ -67,14 +51,6 @@ public class TopicStore : IRepository<Topic>
         {
             query=query.Where((x=>x.Subject.Price<=topicFilter.SubjectPrice));
         }
-
-        foreach (var item in query.ToList())
-        {
-            await _cache.SetStringAsync(item.Id.ToString(), JsonSerializer.Serialize(item), new DistributedCacheEntryOptions
-            {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
-            });
-        }
         return await query.ToListAsync();
 
     }
@@ -96,16 +72,7 @@ public class TopicStore : IRepository<Topic>
         }
 
         var subjects = await quere.Select(t => t.Subject).ToListAsync();
-
-        foreach (var item in subjects)
-        {
-            var sId = "s" + item.Id.ToString();
-            await _cache.SetStringAsync(sId, JsonSerializer.Serialize(item), new DistributedCacheEntryOptions
-            {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
-            });
-        }
-
+        
         return  subjects;
     }
 
@@ -162,7 +129,7 @@ public class TopicStore : IRepository<Topic>
         {
             Console.WriteLine(e);
             await transaction.RollbackAsync();
-            result="fail";
+            result=$"fail - {e.Message}";
         }
         return result;
     }

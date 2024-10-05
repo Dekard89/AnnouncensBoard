@@ -237,3 +237,8 @@ C:/Users/dmitr/source/repos/AnnouncensBoard/AnnouncensBoard/obj/Debug/net8.0/ref
 /home/dmitry/RiderProjects/announcenscard/AnnouncensBoard/obj/Debug/net8.0/AnnouncensBoard.pdb
 /home/dmitry/RiderProjects/announcenscard/AnnouncensBoard/obj/Debug/net8.0/AnnouncensBoard.genruntimeconfig.cache
 /home/dmitry/RiderProjects/announcenscard/AnnouncensBoard/obj/Debug/net8.0/ref/AnnouncensBoard.dll
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard/bin/Debug/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard/bin/Debug/net8.0/Pipelines.Sockets.Unofficial.dll
+/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard/bin/Debug/net8.0/StackExchange.Redis.dll
