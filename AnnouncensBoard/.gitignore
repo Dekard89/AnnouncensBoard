@@ -731,4 +731,6 @@ __pycache__/
 # Cake - Uncomment if you are using it
 # tools/
 
-# End of https://mrkandreev.name/snippets/gitignore-generator/#Rider,Csharp,ASPNETCore
+# Endп of https://mrkandreev.name/snippets/gitignore-generator/#Rider,Csharp,ASPNETCore
+.obj/
+.bin/

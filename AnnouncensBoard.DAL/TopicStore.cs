@@ -11,15 +11,27 @@ namespace AnnouncensBoard.DAL;
 public class TopicStore : IRepository<Topic>
 {
     private readonly AppDbContext _db;
-    
+    private readonly IDistributedCache _cache;
+
     public TopicStore(AppDbContext context, IDistributedCache cache)
     {
         _db = context;
+        _cache=cache;
     }
     public async Task<Topic> GetById(int id)
-    {
-      var  topic = await _db.Topics.FindAsync(id);
-            
+    { 
+        Topic topic;
+
+        var topicString= await _cache.GetStringAsync(id.ToString());
+
+        if (topicString is not null)
+        {
+            topic = JsonSerializer.Deserialize<Topic>(topicString);
+        }
+        else
+        {
+            topic = await _db.Topics.FirstOrDefaultAsync(t => t.Id == id);
+        }
       return topic;
     }
 
@@ -51,6 +63,14 @@ public class TopicStore : IRepository<Topic>
         {
             query=query.Where((x=>x.Subject.Price<=topicFilter.SubjectPrice));
         }
+
+        foreach (var item in query.ToList())
+        {
+            await _cache.SetStringAsync(item.Id.ToString(), JsonSerializer.Serialize(item), new DistributedCacheEntryOptions()
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+            });
+        }
         return await query.ToListAsync();
 
     }
@@ -72,15 +92,31 @@ public class TopicStore : IRepository<Topic>
         }
 
         var subjects = await quere.Select(t => t.Subject).ToListAsync();
+
+        foreach (var subject in subjects)
+        {
+            await _cache.SetStringAsync("s"+ subject.Id.ToString(), JsonSerializer.Serialize(subject), new DistributedCacheEntryOptions()
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+            });
+        }
         
         return  subjects;
     }
 
     public async Task<ICollection<Topic>> GetByPage(int pageNumber, int pageSize)
     {
-        return await _db.Topics.AsNoTracking().Where(t=>t.IsDeleted==false).Include(s => s.Subject)
+        var topics= await _db.Topics.AsNoTracking().Where(t=>t.IsDeleted==false).Include(s => s.Subject)
             .Include(s => s.Subject).ThenInclude(c => c.Characteristics)
             .Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+        foreach (var item in topics)
+        {
+            await _cache.SetStringAsync(item.Id.ToString(), JsonSerializer.Serialize(item), new DistributedCacheEntryOptions()
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+            });
+        }
+        return topics;
     }
 
     public async Task AddAsync(Topic entity)
@@ -99,6 +135,7 @@ public class TopicStore : IRepository<Topic>
             topic.Category = entity.Category;
             topic.Author=entity.Author;
             topic.Subject=entity.Subject;
+            topic.CreateTime=entity.CreateTime;
         }
         await _db.SaveChangesAsync();
     }
@@ -106,7 +143,11 @@ public class TopicStore : IRepository<Topic>
     public async Task DeleteAsync(Topic entity)
     {
         var topic =await _db.Topics.FindAsync(entity.Id);
-        if(topic!=null) entity.IsDeleted=true;
+        if (topic != null)
+        {
+            entity.IsDeleted=true;
+            await _cache.RemoveAsync(topic.Id.ToString());
+        }
         await _db.SaveChangesAsync();
     }
 

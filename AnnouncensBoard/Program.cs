@@ -1,8 +1,14 @@
 using AnnoucensBoard.Domain;
 using AnnoucensBoard.Domain.Entity;
+using AnnouncensBoard.BLL.Models;
+using AnnouncensBoard.BLL.Models.Subject;
+using AnnouncensBoard.BLL.Validation;
 using AnnouncensBoard.DAL;
+using AnnouncensBoard.Options;
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Caching.StackExchangeRedis;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,17 +18,44 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddLogging();
+builder.Services.AddLogging(options =>
+{
+    options.AddConsole();
+    options.AddFile();
+    
+});
 
 
 
 builder.Services.AddDbContext<AppDbContext>();
-
+builder.Services.AddOptions<JwtOptions>()
+    .BindConfiguration(JwtOptions.Section);
 builder.Services.AddScoped<IRepository<Topic>, TopicStore>();
-builder.Services.AddAuthentication();
+builder.Services.AddScoped<IValidator<RegisterRequest>, RegisterValidator>();
+builder.Services.AddScoped<IValidator<TopicDTO>,TopicValidator>();
+builder.Services.AddScoped<IValidator<SubjectDTO>,SubjectValidator>();
+builder.Services.AddScoped<IValidator<CharacteristicDTO>, CharacteristicValidator>();
+builder.Services.AddScoped<IValidator<LoginRequest>,LoginValidator>();
+builder.Services.AddOptions<JwtOptions>()
+    .BindConfiguration(JwtOptions.Section);
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+
+        };
+    });
+
 builder.Services.AddAuthorization();
 
-builder.Services.AddIdentityCore<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentityCore<IdentityUser>().AddEntityFrameworkStores<AppDbContext>()
+    .AddSignInManager<IdentityUser>();
 
 builder.Services.AddStackExchangeRedisCache(opt =>
     {
@@ -50,7 +83,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
 
 
 app.Run();

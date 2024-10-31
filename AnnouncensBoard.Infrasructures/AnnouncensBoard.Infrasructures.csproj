@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\AnnoucensBoard.Domain\AnnoucensBoard.Domain.csproj" />
+      <ProjectReference Include="..\AnnouncensBoard.BLL\AnnouncensBoard.BLL.csproj" />
+    </ItemGroup>
+
 </Project>
