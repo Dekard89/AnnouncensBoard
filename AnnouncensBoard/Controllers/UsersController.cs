@@ -1,11 +1,8 @@
-using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using AnnouncensBoard.BLL.Models;
-using AnnouncensBoard.BLL.Models.Subject;
+using AnnouncensBoard.BLL.DTO;
 using AnnouncensBoard.Options;
 using FluentValidation;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -16,7 +13,7 @@ namespace AnnouncensBoard.Controllers;
 [ApiController]
 public class UsersController : ControllerBase
 {
-    private readonly SignInManager<IdentityUser> _signInManager;
+
     private readonly UserManager<IdentityUser> _userManager;
     private readonly ILogger<UsersController> _logger;
     private readonly IValidator<LoginRequest> _loginValidator;
@@ -24,22 +21,20 @@ public class UsersController : ControllerBase
     private readonly JwtOptions _options;
 
     public UsersController(UserManager<IdentityUser> userManager,
-        SignInManager<IdentityUser> signInManager,
         ILogger<UsersController> logger,
         IValidator<LoginRequest> loginValidator,
         IValidator<RegisterRequest> registerValidator,
         JwtOptions jwtOptions)
     {
-        _signInManager = signInManager;
+
         _userManager = userManager;
         _logger = logger;
         _loginValidator = loginValidator;
         _registerValidator = registerValidator;
-        _options=jwtOptions;
+        _options = jwtOptions;
     }
 
     [HttpPost("[action]")]
-    [Route("[action]")]
     public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
     {
         var result = await _loginValidator.ValidateAsync(loginRequest);
@@ -51,18 +46,18 @@ public class UsersController : ControllerBase
             if (user != null && await _userManager.CheckPasswordAsync(user, loginRequest.Password))
             {
                 _logger.LogInformation($"User {user.Email} logged in.");
-                var claims= await _userManager.GetClaimsAsync(user);
+                var claims = await _userManager.GetClaimsAsync(user);
                 claims.Add(new Claim(ClaimTypes.Email, user.Email));
                 var token = new JwtSecurityToken(
-                   issuer:_options.Issuer,
-                   audience:_options.Audience,
+                   issuer: _options.Issuer,
+                   audience: _options.Audience,
                    expires: _options.TokenLifetime,
                    signingCredentials: new SigningCredentials(_options.GetSymmetricSecurityKey(),
                        SecurityAlgorithms.HmacSha256Signature),
-                   claims:claims );
-                
+                   claims: claims);
+
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-                
+
                 return Ok(tokenString);
             }
         }
@@ -71,7 +66,6 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost("[action]")]
-    [Route("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
     {
         var result = await _registerValidator.ValidateAsync(registerRequest);
@@ -94,7 +88,7 @@ public class UsersController : ControllerBase
         if (resultUser.Succeeded)
             return BadRequest(resultUser.Errors);
         
-        await _signInManager.SignInAsync(newUser, false);
+       
         await _userManager.AddClaimAsync(newUser, new Claim("DateOfBirth", registerRequest.Birthday.ToString()));
         return Ok();
     }

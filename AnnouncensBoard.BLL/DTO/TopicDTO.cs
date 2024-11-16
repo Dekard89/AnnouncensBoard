@@ -1,16 +1,14 @@
-using System.Diagnostics;
-using AnnouncensBoard.BLL.Models.Subject;
-
-namespace AnnouncensBoard.BLL.Models;
-
-public record TopicDTO : AbstractModel
+﻿namespace AnnouncensBoard.BLL.DTO
 {
-    public string Author { get; set; } = string.Empty;
-    
-    public CategoryDTO CategoryDto { get; set; }
-    
-    
-    public DateTime CreatedTime { get; set; }
-    
-    public SubjectDTO Subject { get; set; }
+    public record TopicDTO : AbstractModel
+    {
+        public string Author { get; set; } = string.Empty;
+
+        public CategoryDTO CategoryDto { get; set; }
+
+
+        public DateTime CreatedTime { get; set; }
+
+        public SubjectDTO Subject { get; set; }
+    }
 }

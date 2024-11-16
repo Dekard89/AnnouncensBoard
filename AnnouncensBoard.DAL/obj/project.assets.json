@@ -2606,32 +2606,40 @@
     ]
   },
   "packageFolders": {
-    "/home/dmitry/.nuget/packages/": {}
+    "C:\\Users\\dmitr\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.DAL/AnnouncensBoard.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.DAL\\AnnouncensBoard.DAL.csproj",
       "projectName": "AnnouncensBoard.DAL",
-      "projectPath": "/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.DAL/AnnouncensBoard.DAL.csproj",
-      "packagesPath": "/home/dmitry/.nuget/packages/",
-      "outputPath": "/home/dmitry/RiderProjects/announcenscard/AnnouncensBoard.DAL/obj/",
+      "projectPath": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.DAL\\AnnouncensBoard.DAL.csproj",
+      "packagesPath": "C:\\Users\\dmitr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.DAL\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/dmitry/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\dmitr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/dmitry/RiderProjects/announcenscard/AnnoucensBoard.Domain/AnnoucensBoard.Domain.csproj": {
-              "projectPath": "/home/dmitry/RiderProjects/announcenscard/AnnoucensBoard.Domain/AnnoucensBoard.Domain.csproj"
+            "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnoucensBoard.Domain\\AnnoucensBoard.Domain.csproj": {
+              "projectPath": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnoucensBoard.Domain\\AnnoucensBoard.Domain.csproj"
             }
           }
         }
@@ -2681,7 +2689,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

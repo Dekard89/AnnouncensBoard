@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.Infrastructure\\AnnouncensBoard.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.BLL\\AnnouncensBoard.BLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.BLL\\AnnouncensBoard.BLL.csproj",
+        "projectName": "AnnouncensBoard.BLL",
+        "projectPath": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.BLL\\AnnouncensBoard.BLL.csproj",
+        "packagesPath": "C:\\Users\\dmitr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dmitr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.10.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.Infrastructure\\AnnouncensBoard.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.Infrastructure\\AnnouncensBoard.Infrastructure.csproj",
+        "projectName": "AnnouncensBoard.Infrastructure",
+        "projectPath": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.Infrastructure\\AnnouncensBoard.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\dmitr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dmitr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.BLL\\AnnouncensBoard.BLL.csproj": {
+                "projectPath": "C:\\Users\\dmitr\\source\\repos\\announcenscard\\AnnouncensBoard.BLL\\AnnouncensBoard.BLL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,13 @@
-using AnnouncensBoard.BLL.Models.Subject;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AnnouncensBoard.BLL.Models;
-
-public record CharacteristicDTO: AbstractModel
+namespace AnnouncensBoard.BLL.DTO
 {
-    public string Value { get; set; } = String.Empty;
+    public record CharacteristicDTO : AbstractModel
+    {
+        public string Value { get; set; } = String.Empty;
+    }
 }

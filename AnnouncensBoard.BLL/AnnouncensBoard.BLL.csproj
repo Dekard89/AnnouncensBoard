@@ -1,23 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <Reference Include="FluentValidation">
-        <HintPath>..\..\..\.nuget\packages\fluentvalidation\11.5.1\lib\net7.0\FluentValidation.dll</HintPath>
-      </Reference>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="DTO\Filters\" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnnoucensBoard.Domain\AnnoucensBoard.Domain.csproj" />
+  </ItemGroup>
 
 </Project>

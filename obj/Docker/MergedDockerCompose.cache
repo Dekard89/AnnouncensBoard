@@ -1,8 +1,8 @@
-name: dockercompose10012281821242152908
+name: dockercompose8253762945364098494
 services:
   announcensboard:
     build:
-      context: C:\Users\dmitr\source\repos\AnnouncensBoard
+      context: C:\Users\dmitr\source\repos\announcenscard
       dockerfile: AnnouncensBoard/Dockerfile
     depends_on:
       database:
@@ -75,20 +75,16 @@ services:
         protocol: tcp
     restart: always
     volumes:
-      - type: bind
-        source: /path/to/local/data
-        target: /root/redis
-        bind:
-          create_host_path: true
-      - type: bind
-        source: /path/to/local/redis.conf
-        target: /usr/local/etc/redis/redis.conf
-        bind:
-          create_host_path: true
+      - type: volume
+        source: redis
+        target: /data
+        volume: {}
 networks:
   asp-network:
-    name: dockercompose10012281821242152908_asp-network
+    name: dockercompose8253762945364098494_asp-network
     driver: bridge
 volumes:
   postgres-data:
-    name: dockercompose10012281821242152908_postgres-data
+    name: dockercompose8253762945364098494_postgres-data
+  redis:
+    name: dockercompose8253762945364098494_redis
