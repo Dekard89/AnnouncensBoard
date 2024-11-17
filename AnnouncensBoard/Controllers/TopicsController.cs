@@ -90,6 +90,8 @@ namespace AnnouncensBoard.Controllers
             {
                 var updatedTopic = _mapper.MappingToEntity(topic);
 
+                updatedTopic.CreateTime=DateTime.UtcNow;
+
                 await _repository.UpdateAsync(updatedTopic);
 
                 return Ok();
@@ -126,7 +128,7 @@ namespace AnnouncensBoard.Controllers
         }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] TopicDTO topic)
+        public async Task<IActionResult> Create([FromBody] TopicDTO topic, HttpContext context)
         {
             var result = await _validator.ValidateAsync(topic);
 
@@ -134,6 +136,10 @@ namespace AnnouncensBoard.Controllers
                 return BadRequest(result.Errors);
 
             var createdTopic = _mapper.MappingToEntity(topic);
+
+            createdTopic.Author = context.User.Claims.FirstOrDefault(x => x.Type == "UserName").Value;
+
+            createdTopic.CreateTime = DateTime.UtcNow;
 
             await _repository.AddAsync(createdTopic);
 

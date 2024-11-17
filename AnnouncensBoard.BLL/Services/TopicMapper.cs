@@ -38,9 +38,9 @@ namespace AnnouncensBoard.BLL.Services
             var entity = new Topic
             {
                 Title = dto.Title,
-                Author = dto.Author,
+                
                 Category = (Category)dto.CategoryDto,
-                CreateTime = dto.CreatedTime,
+              
                 Subject = _subjMapper.MappingToEntity(dto.Subject)
             };
             return entity;

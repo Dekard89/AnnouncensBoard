@@ -1,5 +1,0 @@
-C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Infrastructure\obj\Debug\net8.0\AnnouncensBoard.Infrastructure.csproj.AssemblyReference.cache
-C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Infrastructure\obj\Debug\net8.0\AnnouncensBoard.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Infrastructure\obj\Debug\net8.0\AnnouncensBoard.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Infrastructure\obj\Debug\net8.0\AnnouncensBoard.Infrastructure.AssemblyInfo.cs
-C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Infrastructure\obj\Debug\net8.0\AnnouncensBoard.Infrastructure.csproj.CoreCompileInputs.cache

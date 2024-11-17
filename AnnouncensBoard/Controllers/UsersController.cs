@@ -90,6 +90,7 @@ public class UsersController : ControllerBase
         
        
         await _userManager.AddClaimAsync(newUser, new Claim("DateOfBirth", registerRequest.Birthday.ToString()));
+        await _userManager.AddClaimAsync(newUser, new Claim("UserName", registerRequest.Username));
         return Ok();
     }
 

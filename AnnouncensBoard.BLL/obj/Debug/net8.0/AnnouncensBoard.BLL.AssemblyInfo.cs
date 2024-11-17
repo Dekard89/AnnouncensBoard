@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnnouncensBoard.BLL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a582100daa87de55a98eb07328fed05b13b9dd3a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54c6a2f3bfae2889d4b62dd267b24067b5df2f26")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnnouncensBoard.BLL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnnouncensBoard.BLL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

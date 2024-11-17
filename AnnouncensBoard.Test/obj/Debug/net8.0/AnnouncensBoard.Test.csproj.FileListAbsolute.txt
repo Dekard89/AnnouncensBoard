@@ -164,3 +164,12 @@ C:\Users\dmitr\source\repos\AnnouncensBoard.Test\obj\Debug\net8.0\refint\Announc
 C:\Users\dmitr\source\repos\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.pdb
 C:\Users\dmitr\source\repos\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.genruntimeconfig.cache
 C:\Users\dmitr\source\repos\AnnouncensBoard.Test\obj\Debug\net8.0\ref\AnnouncensBoard.Test.dll
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\bin\Debug\net8.0\CoverletSourceRootsMapping_AnnouncensBoard.Test
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.csproj.AssemblyReference.cache
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.AssemblyInfoInputs.cache
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.AssemblyInfo.cs
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.csproj.CoreCompileInputs.cache
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.dll
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\obj\Debug\net8.0\refint\AnnouncensBoard.Test.dll
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.Test\obj\Debug\net8.0\AnnouncensBoard.Test.pdb

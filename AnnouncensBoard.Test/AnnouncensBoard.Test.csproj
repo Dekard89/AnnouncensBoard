@@ -24,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\announcenscard\AnnoucensBoard.Domain\AnnoucensBoard.Domain.csproj" />
-    <ProjectReference Include="..\announcenscard\AnnouncensBoard\AnnouncensBoard.csproj" />
+    <ProjectReference Include="..\AnnouncensBoard.BLL\AnnouncensBoard.BLL.csproj" />
+    <ProjectReference Include="..\AnnouncensBoard.DAL\AnnouncensBoard.DAL.csproj" />
   </ItemGroup>
 
 </Project>

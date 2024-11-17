@@ -3,7 +3,6 @@ using Moq;
 using AnnoucensBoard.Domain.Entity;
 using AnnoucensBoard.Domain.Entity.Subjects;
 using AnnoucensBoard.Domain.Filters;
-using AnnouncensBoard.Controllers;
 
 namespace AnnouncensBoard.Test
 {
