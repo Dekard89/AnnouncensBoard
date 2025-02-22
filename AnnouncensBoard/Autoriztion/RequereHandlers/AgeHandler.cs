@@ -14,7 +14,7 @@ namespace AnnouncensBoard.Autoriztion.RequereHandlers
 
             if(yearClaim is not null)
             {
-                if(int.TryParse(yearClaim.Value, out var year))
+                if(DateTime.TryParse(yearClaim.Value, out var year))
                 {
                     if(subject.AdultOnly==false)
                     {
@@ -24,7 +24,7 @@ namespace AnnouncensBoard.Autoriztion.RequereHandlers
                     else
                     {
 
-                        if ((DateTime.Now.Year - year) >= requirement.Age)
+                        if ((DateTime.Now.Year - year.Year) >= requirement.Age)
                         {
                             context.Succeed(requirement);
                         }

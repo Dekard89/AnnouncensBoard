@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnnoucensBoard.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54c6a2f3bfae2889d4b62dd267b24067b5df2f26")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84af094b45b0268438610e5cf6280e0ac435ca74")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnnoucensBoard.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnnoucensBoard.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

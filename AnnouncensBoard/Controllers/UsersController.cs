@@ -3,8 +3,10 @@ using System.Security.Claims;
 using AnnouncensBoard.BLL.DTO;
 using AnnouncensBoard.Options;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace AnnouncensBoard.Controllers;
@@ -18,13 +20,13 @@ public class UsersController : ControllerBase
     private readonly ILogger<UsersController> _logger;
     private readonly IValidator<LoginRequest> _loginValidator;
     private readonly IValidator<RegisterRequest> _registerValidator;
-    private readonly JwtOptions _options;
+    private readonly IOptions<JwtOptions> _options;
 
     public UsersController(UserManager<IdentityUser> userManager,
         ILogger<UsersController> logger,
         IValidator<LoginRequest> loginValidator,
         IValidator<RegisterRequest> registerValidator,
-        JwtOptions jwtOptions)
+        IOptions<JwtOptions> jwtOptions)
     {
 
         _userManager = userManager;
@@ -33,41 +35,44 @@ public class UsersController : ControllerBase
         _registerValidator = registerValidator;
         _options = jwtOptions;
     }
-
+    [AllowAnonymous]
     [HttpPost("[action]")]
     public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
     {
         var result = await _loginValidator.ValidateAsync(loginRequest);
         if (!result.IsValid)
             return BadRequest(result.Errors);
-        else
-        {
-            var user = await _userManager.FindByEmailAsync(loginRequest.Email);
-            if (user != null && await _userManager.CheckPasswordAsync(user, loginRequest.Password))
-            {
-                _logger.LogInformation($"User {user.Email} logged in.");
-                var claims = await _userManager.GetClaimsAsync(user);
-                claims.Add(new Claim(ClaimTypes.Email, user.Email));
-                var token = new JwtSecurityToken(
-                   issuer: _options.Issuer,
-                   audience: _options.Audience,
-                   expires: _options.TokenLifetime,
-                   signingCredentials: new SigningCredentials(_options.GetSymmetricSecurityKey(),
-                       SecurityAlgorithms.HmacSha256Signature),
-                   claims: claims);
+        
+        
+        var user = await _userManager.FindByEmailAsync(loginRequest.Email);
+        if(user==null)
+            return NotFound("user is not register");
 
-                var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+        var checkResult= await _userManager.CheckPasswordAsync(user, loginRequest.Password);
+        if(!checkResult)
+            return BadRequest("password invalid");
+        var claims = await _userManager.GetClaimsAsync(user);
+        claims.Add(new Claim(ClaimTypes.Email, user.Email));
+        TimeSpan expire = new(0, 0, 0);
+        var token = new JwtSecurityToken(
+           issuer: _options.Value.Issuer,
+           audience: _options.Value.Audience,
+           expires: DateTime.UtcNow.AddHours(Convert.ToDouble(_options.Value.TokenLifetime)),
+           signingCredentials: new SigningCredentials(_options.Value.GetSymmetricSecurityKey(),
+               SecurityAlgorithms.HmacSha256Signature),
+           claims: claims); 
 
-                return Ok(tokenString);
-            }
-        }
+        var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-        return Unauthorized();
+        return Ok(tokenString);
     }
-
+    [AllowAnonymous]
     [HttpPost("[action]")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
     {
+        if (registerRequest is null)
+            return BadRequest("Request is null");
+
         var result = await _registerValidator.ValidateAsync(registerRequest);
         if (!result.IsValid)
             return BadRequest(result.Errors);
@@ -79,18 +84,16 @@ public class UsersController : ControllerBase
         var newUser = new IdentityUser
         {
             Email = registerRequest.Email,
-            Id = new Guid().ToString(),
             UserName = registerRequest.Username,
             PhoneNumber = registerRequest.Phone
 
         };
         var resultUser = await _userManager.CreateAsync(newUser, registerRequest.Password);
-        if (resultUser.Succeeded)
+        if (!resultUser.Succeeded)
             return BadRequest(resultUser.Errors);
         
        
-        await _userManager.AddClaimAsync(newUser, new Claim("DateOfBirth", registerRequest.Birthday.ToString()));
-        await _userManager.AddClaimAsync(newUser, new Claim("UserName", registerRequest.Username));
+        await _userManager.AddClaimAsync(newUser, new Claim("DateOfBirth", registerRequest.Birthday));
         return Ok();
     }
 

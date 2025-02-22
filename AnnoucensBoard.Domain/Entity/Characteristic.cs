@@ -4,7 +4,7 @@
     {
         public string Value { get; set; }=String.Empty;
 
-        public Subject Subject { get; set; }
+        public Subject? Subject { get; set; }
     }
     
        

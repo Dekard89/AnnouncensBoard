@@ -10,7 +10,7 @@
 
         public bool IsDeleted { get; set; }
 
-        public Subject Subject { get; set; }
+        public Subject? Subject { get; set; }
 
 
     }

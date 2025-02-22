@@ -18,7 +18,7 @@ namespace AnnouncensBoard.BLL.DTO
 
         public string Phone { get; set; } = String.Empty;
 
-        public DateTime Birthday { get; set; }
+        public string Birthday { get; set; }= String.Empty;
 
 
     }

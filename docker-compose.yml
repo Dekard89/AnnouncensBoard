@@ -2,7 +2,8 @@
 version: '3.4'
 
 services:
-  announcensboard:
+  announcensboards:
+    container_name: server
     image: ${DOCKER_REGISTRY-}announcensboard
     depends_on:
       - database
@@ -12,25 +13,24 @@ services:
     build:
       context: .
       dockerfile: AnnouncensBoard/Dockerfile
-    networks:
-       - asp-network
+    
       
       
   
   database:
     container_name: postgres
+    hostname: postgres
     image: postgres   
     restart: always
     environment:
-        POSTGRES_DB: my_db
+        POSTGRES_DB: announcens_db
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
-      - postgres-data:/var/lib/postgres/data
-    networks:
-       - asp-network
+      - ./db/data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
   redis:
     container_name: redis
@@ -38,19 +38,29 @@ services:
     restart: always
     ports:
        - "6379:6379"
-    volumes:
-       - redis:/data
     environment:
       - REDIS_PASSWORD=my-password
       - REDIS_PORT=6379
       - REDIS_DATABASES=16
-    networks:
-      - asp-network
 
-networks:
-    asp-network:
-       driver: bridge
-volumes:
-  postgres-data:
-  redis:
+  client:
+    image: vue-client
+    container_name: vue-client
+    build: ../Extra/vue-client
+    ports:
+       - "8080:8080"
+    volumes:
+       - /vue-client:/var/www/html/app
+
+  proxy:
+    image: proxy
+    container_name: proxy
+    build: ../Extra/Nginx
+    ports:
+        - 443:443
+    depends_on:
+       - client
+       - announcensboards
+    restart: always
+  
     

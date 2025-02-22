@@ -137,7 +137,7 @@ namespace AnnouncensBoard.Controllers
 
             var createdTopic = _mapper.MappingToEntity(topic);
 
-            createdTopic.Author = context.User.Claims.FirstOrDefault(x => x.Type == "UserName").Value;
+            createdTopic.Author = context.User.Identity.Name;
 
             createdTopic.CreateTime = DateTime.UtcNow;
 

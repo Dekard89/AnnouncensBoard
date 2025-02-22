@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace AnnouncensBoard.DAL.EntityConfigaration
         public void Configure(EntityTypeBuilder<IdentityUser> builder)
         {
             builder.HasKey(t => t.Id);
+
+            builder.HasAnnotation("PK_Users",ValueGenerated.OnAddOrUpdate);
         }
     }
 }

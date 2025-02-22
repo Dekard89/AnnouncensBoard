@@ -23,10 +23,10 @@ namespace AnnouncensBoard.BLL.Validation
             RuleFor(u => u.Email).NotEmpty().WithMessage("Email is required").EmailAddress()
                 .WithMessage("Email-format is required");
             RuleFor(u => u.Phone).NotEmpty().WithMessage("Phone is required").Matches("[0-9]")
-                .WithMessage("Phone format is required").MinimumLength(9).WithMessage("Phone must contain at least 9 digits")
-                .MaximumLength(9).WithMessage("Phone must contain at most 9 digits");
-            RuleFor(u => u.Birthday).NotEmpty().WithMessage("Birthday is required")
-                .GreaterThan(DateTime.UtcNow).WithMessage("Birthday must be greater than today");
+                .WithMessage("Phone format is required").MinimumLength(11).WithMessage("Phone must contain at least 11 digits")
+                .MaximumLength(11).WithMessage("Phone must contain at most 9 digits");
+            RuleFor(u => u.Birthday).NotEmpty().WithMessage("Birthday is required");
+               
         }
     }
 }

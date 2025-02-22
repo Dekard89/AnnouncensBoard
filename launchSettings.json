@@ -1,4 +1,12 @@
 {
+  "iisSettings": {
+    "windowsAuthentication": true,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "https://localhost:32771",
+      "sslPort": 0
+    }
+  },
   "profiles": {
     "Docker Compose": {
       "commandName": "DockerCompose",

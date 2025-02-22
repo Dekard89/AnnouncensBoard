@@ -77,9 +77,9 @@ C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\
 C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\AnnouncensBoard.DAL.AssemblyInfoInputs.cache
 C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\AnnouncensBoard.DAL.AssemblyInfo.cs
 C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\AnnouncensBoard.DAL.csproj.CoreCompileInputs.cache
-C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\AnnouncensBoard.DAL.csproj.CopyComplete
 C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\AnnouncensBoard.DAL.dll
 C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\refint\AnnouncensBoard.DAL.dll
 C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\AnnouncensBoard.DAL.pdb
 C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\AnnouncensBoard.DAL.genruntimeconfig.cache
 C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\ref\AnnouncensBoard.DAL.dll
+C:\Users\dmitr\source\repos\announcenscard\AnnouncensBoard.DAL\obj\Debug\net8.0\Announce.57B20D3F.Up2Date

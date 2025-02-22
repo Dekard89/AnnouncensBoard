@@ -27,6 +27,8 @@ namespace AnnouncensBoard.DAL
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+ 
+           
             builder.ApplyConfiguration(new TopicConfiguration());
             builder.ApplyConfiguration(new SubjectConfiguration());
             builder.ApplyConfiguration(new CharacteristicConfiguration());

@@ -125,7 +125,6 @@ C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.IdentityModel.Pro
 C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.IdentityModel.Protocols.dll
 C:\Users\dmitr\source\repos\announcenscard\bin\Debug\StackExchange.Redis.dll
-C:\Users\dmitr\source\repos\announcenscard\bin\Debug\System.Text.Json.dll
 C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.IdentityModel.Logging.dll
 C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -146,4 +145,10 @@ C:\Users\dmitr\source\repos\announcenscard\bin\Debug\AnnouncensBoard.DAL.pdb
 C:\Users\dmitr\source\repos\announcenscard\bin\Debug\AnnoucensBoard.Domain.pdb
 C:\Users\dmitr\source\repos\announcenscard\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\Users\dmitr\source\repos\announcenscard\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
-C:\Users\dmitr\source\repos\announcenscard\obj\Debug\docker-compose.dcproj.CopyComplete
+C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.AspNetCore.Authentication.Negotiate.dll
+C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\dmitr\source\repos\announcenscard\bin\Debug\System.DirectoryServices.Protocols.dll
+C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.Extensions.Features.dll
+C:\Users\dmitr\source\repos\announcenscard\bin\Debug\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\dmitr\source\repos\announcenscard\bin\Debug\AnnouncensBoard.staticwebassets.endpoints.json
+C:\Users\dmitr\source\repos\announcenscard\obj\Debug\docker-c.35A3FFBA.Up2Date

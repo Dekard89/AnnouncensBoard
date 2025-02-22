@@ -4,7 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace AnnouncensBoard.Options;
 
-public class JwtOptions
+public class JwtOptions 
 {
     public const string Section = nameof(JwtOptions);
 
@@ -14,7 +14,7 @@ public class JwtOptions
     
     public string SecretKey { get; set; }=String.Empty;
     
-    public DateTime TokenLifetime { get; set; }
+    public string TokenLifetime { get; set; }= String.Empty;
     
     public SymmetricSecurityKey GetSymmetricSecurityKey()
         => new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));

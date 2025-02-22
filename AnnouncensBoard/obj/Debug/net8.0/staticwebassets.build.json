@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "HIz/ete0RlzvnF6/4ql4KrEd1H70e7FXW2r85lv1y2k=",
+  "Hash": "LYM1JsOB0AhkC4qObdZD7kH3tuY4vpARcgSFFgWkVcU=",
   "Source": "AnnouncensBoard",
   "BasePath": "_content/AnnouncensBoard",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

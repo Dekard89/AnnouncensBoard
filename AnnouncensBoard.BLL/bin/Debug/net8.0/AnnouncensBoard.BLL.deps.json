@@ -25,7 +25,10 @@
       },
       "AnnoucensBoard.Domain/1.0.0": {
         "runtime": {
-          "AnnoucensBoard.Domain.dll": {}
+          "AnnoucensBoard.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
